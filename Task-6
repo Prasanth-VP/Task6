@@ -1,0 +1,145 @@
+Write a “person” class to hold all the details
+class Person {
+    firstName: string;
+    lastName: string;
+    age: number;
+    gender: string;
+    email: string;
+    phone: string;
+    address: string;
+
+    constructor(firstName: string, lastName: string, age: number, gender: string, email: string, phone: string, address: string) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.gender = gender;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+    }
+
+    getFullName(): string {
+        return this.firstName + " " + this.lastName;
+    }
+
+    getAge(): number {
+        return this.age;
+    }
+
+    getGender(): string {
+        return this.gender;
+    }
+
+    getEmail(): string {
+        return this.email;
+    }
+
+    getPhone(): string {
+        return this.phone;
+    }
+
+    getAddress(): string {
+        return this.address;
+    }
+
+    setAge(age: number): void {
+        this.age = age;
+    }
+
+    setEmail(email: string): void {
+        this.email = email;
+    }
+
+    setPhone(phone: string): void {
+        this.phone = phone;
+    }
+
+    setAddress(address: string): void {
+        this.address = address;
+    }
+}
+
+// Example usage:
+const person = new Person("John", "Doe", 30, "Male", "john.doe@example.com", "+1 (123) 456-7890", "123 Main Street, City, Country");
+
+console.log("Full Name:", person.getFullName());
+console.log("Age:", person.getAge());
+console.log("Gender:", person.getGender());
+console.log("Email:", person.getEmail());
+console.log("Phone:", person.getPhone());
+console.log("Address:", person.getAddress());
+
+// Update age, email, phone, and address
+person.setAge(35);
+person.setEmail("john.doe.updated@example.com");
+person.setPhone("+1 (987) 654-3210");
+person.setAddress("456 Oak Street, City, Country");
+
+console.log("\nAfter Update:");
+console.log("Full Name:", person.getFullName());
+console.log("Age:", person.getAge());
+console.log("Gender:", person.getGender());
+console.log("Email:", person.getEmail());
+console.log("Phone:", person.getPhone());
+console.log("Address:", person.getAddress());
+
+
+write a class to calculate the Uber price.
+class UberPriceCalculator {
+    baseFare: number;
+    costPerKm: number;
+    costPerMinute: number;
+
+    constructor(baseFare: number, costPerKm: number, costPerMinute: number) {
+        this.baseFare = baseFare;
+        this.costPerKm = costPerKm;
+        this.costPerMinute = costPerMinute;
+    }
+
+    calculatePrice(distanceInKm: number, timeInMinutes: number): number {
+        const distanceCost = distanceInKm * this.costPerKm;
+        const timeCost = timeInMinutes * this.costPerMinute;
+        const totalPrice = this.baseFare + distanceCost + timeCost;
+        return totalPrice;
+    }
+}
+
+// Example usage:
+const priceCalculator = new UberPriceCalculator(5, 2, 0.5); // Base fare: $5, Cost per km: $2, Cost per minute: $0.5
+const distance = 10; // 10 kilometers
+const time = 15; // 15 minutes
+const totalPrice = priceCalculator.calculatePrice(distance, time);
+console.log("Total price for the Uber ride:", totalPrice);
+
+
+Class - Movie
+class Movie {
+    title: string;
+    studio: string;
+    rating: string;
+
+    constructor(title: string, studio: string, rating: string = "PG") {
+        this.title = title;
+        this.studio = studio;
+        this.rating = rating;
+    }
+
+    static getPG(movies: Movie[]): Movie[] {
+        return movies.filter(movie => movie.rating === "PG");
+    }
+}
+
+// Create an instance of the class Movie
+const casinoRoyale = new Movie("Casino Royale", "Eon Productions", "PG-13");
+
+// Testing the getPG method
+const movies: Movie[] = [
+    new Movie("Movie 1", "Studio A", "PG"),
+    new Movie("Movie 2", "Studio B", "PG-13"),
+    new Movie("Movie 3", "Studio C", "R"),
+    new Movie("Movie 4", "Studio D", "PG"),
+    new Movie("Movie 5", "Studio E", "PG-13"),
+];
+
+const pgMovies: Movie[] = Movie.getPG(movies);
+console.log(pgMovies);
